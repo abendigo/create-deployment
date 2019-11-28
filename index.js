@@ -7,7 +7,7 @@ async function run() {
     // console.log(`The event payload: ${contextPayload}`);
 
     const token = core.getInput('token', { required: true });
-    // const ref = core.getInput("ref");
+    const ref = core.getInput("ref");
     const task = core.getInput('task');
     const payload = core.getInput('payload');
     const environment = core.getInput('environment');
@@ -20,14 +20,14 @@ async function run() {
     const [owner, repo] = process.env['GITHUB_REPOSITORY'].split('/');
 
     // const ref = github.context.payload.ref;
-    const ref = process.env['GITHUB_REF'];
+    // const ref = process.env['GITHUB_REF'];
     console.log({ owner, repo, ref });
 
     // console.log('env', process.env);
 
     // https://octokit.github.io/rest.js/
-    // const foo = await octokit.repos.createDeployment({
-    console.log({
+    const foo = await octokit.repos.createDeployment({
+    //  console.log({
       owner,
       repo,
       ref,
@@ -37,7 +37,7 @@ async function run() {
       task,
       description
     });
-    // console.log('foo', foo)
+    console.log('foo', foo)
 
     core.setOutput('id', 999);
   }
