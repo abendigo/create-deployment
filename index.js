@@ -26,7 +26,8 @@ async function run() {
     // console.log('env', process.env);
 
     // https://octokit.github.io/rest.js/
-    const foo = await octokit.repos.createDeployment({
+    // const foo = await octokit.repos.createDeployment({
+    console.log({
       owner,
       repo,
       ref,
@@ -36,8 +37,7 @@ async function run() {
       task,
       description
     });
-
-    console.log('foo', foo)
+    // console.log('foo', foo)
 
     core.setOutput('id', 999);
   }

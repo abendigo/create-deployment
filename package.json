@@ -1,7 +1,7 @@
 {
   "name": "create-deployment",
   "version": "1.0.0",
-  "description": "Create a Deployment via GITHUB Deployment API",
+  "description": "Create a Deployment via GitHub Deployments API",
   "main": "index.js",
   "scripts": {
     "lint": "eslint index.js",
@@ -15,7 +15,7 @@
   "keywords": [
     "GitHub",
     "Actions",
-    "JavaScript"
+    "Deployments"
   ],
   "author": "Mark Oosterveld",
   "license": "MIT",

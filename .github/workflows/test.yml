@@ -11,9 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-
-    - run: npm ci
-    - run: npm test
+    - name: Generate VERSION
+      run: echo "::set-env name=VERSION::$(git describe --tags --always --dirty)"
+    # - run: npm ci
+    # - run: npm test
     - uses: ./
       with:
-        milliseconds: 1000
+        token: ${{ secrets.GITHUB_TOKEN }}
+        payload:
+          - version: ${{ env.VERSION }}
