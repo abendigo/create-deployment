@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
+// getInput returns '' (empty string) for undeclared parameters
 const isNotEmpty = value => value !== null && value.length > 0;
 
 async function run() {
@@ -33,11 +34,10 @@ async function run() {
       ...(isNotEmpty(description) && { description })
     });
 
-    //
+    // Tell any following tasks about the deployment we just created
     core.setOutput('id', id);
-  } catch (error) {
-    console.log('error', error);
-    core.setFailed(error.message);
+  } catch ({ message }) {
+    core.setFailed(message);
   }
 }
 
