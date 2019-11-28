@@ -2,27 +2,17 @@
   "name": "create-deployment",
   "version": "1.0.0",
   "description": "Create a Deployment via GitHub Deployments API",
+  "homepage": "https://github.com/abendigo/create-deployment#readme",
+  "bugs": "https://github.com/abendigo/create-deployment/issues",
+  "license": "MIT",
   "main": "index.js",
+  "repository": "github:abendigo/create-deployment",
+  "author": "Mark Oosterveld",
   "scripts": {
     "lint": "eslint index.js",
     "package": "ncc build index.js -o dist",
     "test": "eslint index.js && jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abendigo/create-deployment.git"
-  },
-  "keywords": [
-    "GitHub",
-    "Actions",
-    "Deployments"
-  ],
-  "author": "Mark Oosterveld",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/abendigo/create-deployment/issues"
-  },
-  "homepage": "https://github.com/abendigo/create-deployment#readme",
   "dependencies": {
     "@actions/core": "^1.2.0",
     "@actions/github": "^1.1.0"

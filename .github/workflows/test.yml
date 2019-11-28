@@ -19,7 +19,7 @@ jobs:
         id: deploy
         uses: ./
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # token: ${{ secrets.GITHUB_TOKEN }}
           payload: ${{ env.VERSION }}
       - name: Get the deplopyment ID
-        run: echo "The time was ${{ steps.deploy.outputs.id }}"
+        run: echo "The deployment ID was ${{ steps.deploy.outputs.id }}"
