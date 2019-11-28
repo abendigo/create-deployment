@@ -1,4 +1,4 @@
-name: "test-local"
+name: 'test-local'
 on:
   pull_request:
   push:
@@ -10,12 +10,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Generate VERSION
-      run: echo "::set-env name=VERSION::$(git describe --tags --always --dirty)"
-    - run: npm ci
-    # - run: npm test
-    - uses: ./
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        payload: ${{ env.VERSION }}
+      - uses: actions/checkout@v1
+      - name: Generate VERSION
+        run: echo "::set-env name=VERSION::$(git describe --tags --always --dirty)"
+      - run: npm ci
+      # - run: npm test
+      - name: Create Deployment
+        id: deploy
+        uses: ./
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          payload: ${{ env.VERSION }}
+      - name: Get the deplopyment ID
+        run: echo "The time was ${{ steps.deploy.outputs.id }}"
