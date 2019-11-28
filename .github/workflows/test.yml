@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Generate VERSION
       run: echo "::set-env name=VERSION::$(git describe --tags --always --dirty)"
-    # - run: npm ci
+    - run: npm ci
     # - run: npm test
     - uses: ./
       with:
