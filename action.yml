@@ -1,13 +1,27 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Create Deployment'
+description: 'Create a Deployment via GITHUB Deployment API'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  token:
+    description: 'This should be a token with access to your repository scoped in as a secret'
     required: true
-    default: '1000'
+  ref:
+    description: 'The ref to deploy. This can be a branch, tag, or SHA. Defaults to the value of ???'
+    required: false
+  task:
+    description: 'Specifies a task to execute (e.g., deploy or deploy:migrations)'
+    required: false
+  payload:
+    description: 'JSON payload with extra information about the deployment'
+    required: false
+  environment:
+    description: 'Name for the target deployment environment (e.g., production, staging, qa)'
+    required: false
+  description:
+    description: 'Short description of the deployment'
+    required: false
 outputs:
-  time: # output will be available to future steps 
-    description: 'The message to output'
+  id:
+    description: 'The time we greeted you'
 runs:
   using: 'node12'
-  main: 'dist/index.js'
+  main: 'index.js'
