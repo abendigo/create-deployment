@@ -19,4 +19,4 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         payload:
-          - version: ${{ env.VERSION }}
+          version: ${{ env.VERSION }}
