@@ -1,5 +1,5 @@
 name: 'Create GitHub API Deployment'
-brand:
+branding:
   icon: 'download-cloud'
   color: 'orange'
 description: 'Create a Deployment via the GitHub API'
