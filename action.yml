@@ -1,13 +1,15 @@
-name: 'Create Deployment'
-description: 'Create a Deployment via GITHUB Deployment API'
+name: 'Create GitHub API Deployment'
+brand:
+  icon: 'download-cloud'
+  color: 'orange'
+description: 'Create a Deployment via the GitHub API'
 inputs:
   token:
     description: 'This should be a token with access to your repository scoped in as a secret'
     required: true
   ref:
-    description:
-      The ref to deploy. This can be a branch, tag, or SHA.
-      Defaults to the value of ???
+    description: The ref to deploy. This can be a branch, tag, or SHA.
+      Defaults to the value of ${GITHUB_GITHUB_REPOSITORY}
     required: false
   task:
     description: 'Specifies a task to execute (e.g., deploy or deploy:migrations)'
@@ -23,7 +25,7 @@ inputs:
     required: false
 outputs:
   id:
-    description: 'The time we greeted you'
+    description: 'The ID of the Deployment'
 runs:
   using: 'node12'
   main: 'index.js'
